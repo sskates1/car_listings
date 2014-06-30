@@ -44,4 +44,15 @@ feature 'user adds a new car', %Q(
 
     expect(page).to have_content "Year must be greater than or equal to 1920"
   end
+
+  scenario 'user tries to add a car with a milage with negative mileage' do
+    car = FactoryGirl.build(:car)
+
+    visit new_car_path
+
+    fill_in 'Mileage', with: "-1"
+    click_on 'Submit'
+
+    expect(page).to have_content "Mileage must be greater than or equal to 0"
+  end
 end
