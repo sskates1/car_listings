@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :manufacturer do
-    name 'Ford'
-    country 'USA'
+    name 'Honda'
+    country 'Japan'
   end
 end

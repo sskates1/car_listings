@@ -5,7 +5,7 @@ feature 'user adds a new manufacturer', %Q(
   I want to add a new manufacturer I found.
 ) do
 
-  scenario 'user can add a food manufacturer' do
+  scenario 'user can add a manufacturer' do
     manufacturer = FactoryGirl.build(:manufacturer)
 
     visit new_manufacturer_path
@@ -17,7 +17,7 @@ feature 'user adds a new manufacturer', %Q(
     expect(page).to have_content manufacturer.name
   end
 
-  scenario 'user tries to add a blank food manufacturer' do
+  scenario 'user tries to add a blank manufacturer' do
     visit new_manufacturer_path
     click_on 'Submit'
     expect(page).to have_content "Name can't be blank"
