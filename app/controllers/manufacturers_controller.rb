@@ -1,6 +1,6 @@
 class ManufacturersController < ApplicationController
   def index
-    @manufacturers = Manufacturer.all
+    @manufacturers = Manufacturer.order(created_at: :desc)
   end
 
   def show
@@ -8,7 +8,7 @@ class ManufacturersController < ApplicationController
   end
 
   def create
-    @manufacturer = manufacturers.new(manufacturer_params)
+    @manufacturer = Manufacturer.new(manufacturer_params)
 
     if @manufacturer.save
       redirect_to manufacturers_path
