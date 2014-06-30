@@ -14,5 +14,12 @@
 
 <%= yield %>
 
+<div class='navbar-fixed-bottom foot'>
+    <%= link_to 'Cars Home', cars_path %> |
+    <%= link_to 'New Car', new_car_path %> |
+    <%= link_to 'Manufacturers Home', manufacturers_path %> |
+    <%= link_to 'New Manufacturer', new_manufacturer_path %>
+</div>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   def index
-    @cars = Car.All
+    @cars = Car.order(created_at: :desc)
   end
 
   def show
@@ -12,7 +12,9 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.new(car_params)
+    params = car_params
+    params[:manufacturer] = Manufacturer.find(car_params[:manufacturer])
+    @car = Car.new(params)
     if @car.save
       redirect_to cars_path
     else
@@ -25,7 +27,8 @@ class CarsController < ApplicationController
 
   def car_params
     params.require(:car).permit(
-                                :manufacture,
+                                :manufacturer,
+                                :model,
                                 :color,
                                 :year,
                                 :mileage,
