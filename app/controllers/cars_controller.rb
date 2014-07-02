@@ -16,6 +16,7 @@ class CarsController < ApplicationController
     params[:manufacturer] = Manufacturer.find(car_params[:manufacturer])
     @car = Car.new(params)
     if @car.save
+      flash[:notice] = "Your car was succesfully entered"
       redirect_to cars_path
     else
       flash.now[:notice] = 'Error, your car could not be saved.'

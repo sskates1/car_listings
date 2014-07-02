@@ -20,6 +20,7 @@ feature 'user adds a new car', %Q(
     click_on 'Submit'
 
     expect(page).to have_content car.model
+    expect(page).to have_content "Your car was succesfully entered"
   end
 
   scenario 'user tries to add a blank car' do

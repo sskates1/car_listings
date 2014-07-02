@@ -15,6 +15,7 @@ feature 'user adds a new manufacturer', %Q(
     click_on 'Submit'
 
     expect(page).to have_content manufacturer.name
+    expect(page).to have_content "Your manufacturer  was succesfully entered"
   end
 
   scenario 'user tries to add a blank manufacturer' do

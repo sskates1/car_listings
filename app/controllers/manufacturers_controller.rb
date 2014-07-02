@@ -11,7 +11,7 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.new(manufacturer_params)
 
     if @manufacturer.save
-      flash[:notice] = "Your car was succesfully entered"
+      flash[:notice] = "Your manufacturer was succesfully entered"
       redirect_to manufacturers_path
     else
       flash.now[:notice] = 'Uh oh! Your manufacturer could not be saved.'
