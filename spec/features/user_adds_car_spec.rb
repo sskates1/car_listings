@@ -35,6 +35,7 @@ feature 'user adds a new car', %Q(
     expect(page).to have_content "Mileage can't be blank"
     expect(page).to have_content "Mileage can't be blank"
   end
+
   scenario 'user tries to add a car with a year before 1920' do
     car = FactoryGirl.build(:car)
 
