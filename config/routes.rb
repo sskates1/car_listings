@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'cars#index'
 
   resources :cars, only: [:create, :new, :index, :show]
 

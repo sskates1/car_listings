@@ -3,7 +3,11 @@ class Car < ActiveRecord::Base
   validates :color, presence: true
   validates :year,
             presence: true,
-            numericality: { only_integer: true, greater_than_or_equal_to: 1920 }
+            numericality: {
+              only_integer: true,
+              greater_than_or_equal_to: 1920,
+              less_than_or_equal_to: Time.now.year
+            }
   validates :mileage,
             presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 0}

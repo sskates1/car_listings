@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630075020) do
+ActiveRecord::Schema.define(version: 20140702133543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140630075020) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "manufacturer_id"
+    t.integer  "manufacturer_id", null: false
   end
 
   add_index "cars", ["manufacturer_id"], name: "index_cars_on_manufacturer_id", using: :btree
@@ -35,5 +35,7 @@ ActiveRecord::Schema.define(version: 20140630075020) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "manufacturers", ["country", "name"], name: "index_manufacturers_on_country_and_name", unique: true, using: :btree
 
 end
